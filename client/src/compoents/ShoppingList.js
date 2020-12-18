@@ -29,7 +29,7 @@ class ShoppingList extends Component {
                             items.map((val, key) => {
                                 return(
                                     <ListGroupItem key={key} style={{margin: "10px 0",border: "1px solid #cbcbcb"}}>
-                                        <Button className="remove-btn btn-danger" onClick={() => this.deleteListItem(val.id)}>
+                                        <Button className="remove-btn btn-danger" onClick={() => this.deleteListItem(val._id)}>
                                             &times;
                                         </Button>
                                         <h4 style={{display:"initial"}}>{val.name}</h4>

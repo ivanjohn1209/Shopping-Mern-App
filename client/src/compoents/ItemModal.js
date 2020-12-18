@@ -9,7 +9,6 @@ import {
     Label,
     Input
 } from "reactstrap"
-import { v1 as uuidv1 } from "uuid";
 import { connect } from "react-redux"
 import { addItem } from "../actions/itemActions"
 import PropTypes from "prop-types";
@@ -33,9 +32,10 @@ class ItemModal extends Component {
         })
     };
     onSubmit = (e) => {
-       e.preventDefault()
+        if(e){
+            e.preventDefault()
+        }
         const newItem = {
-            id: uuidv1(),
             name: this.state.name
         }
         this.props.addItem(newItem)
@@ -54,6 +54,7 @@ class ItemModal extends Component {
                                 <Input type="text" name="name" id="item" placeholder="Add Item" onChange={(e) => this.onChange(e)}/>
                             </FormGroup>
                         </Form>
+                        <Button color="dark" style={{ marginBottom: "2rem", width: "100%" }} onClick={() => this.onSubmit(false)}>Create Item</Button>
                     </ModalBody>
                 </Modal>
 
